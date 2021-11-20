@@ -1,4 +1,5 @@
 import React from 'react';
+import {skyAndGroundWidth} from "../utils/constants";
 
 function Ground(props) {
     const groundStyle = {
@@ -9,7 +10,7 @@ function Ground(props) {
         strokeWidth: '3px',
     };
 
-    const groundWidth = 5000;
+    const groundWidth = skyAndGroundWidth;
     return (
         <g id="ground">
             <rect
