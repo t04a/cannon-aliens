@@ -3,6 +3,7 @@ import Ground from "./Ground";
 import CannonPipe from "./CannonPipe";
 import CannonBase from "./CannonBase";
 import PropTypes from "prop-types";
+import CannonBall from "./CannonBall";
 
 function Canvas(props) {
     const viewBox = [
@@ -21,6 +22,7 @@ function Canvas(props) {
             <Ground/>
             <CannonPipe rotation={props.angle}/>
             <CannonBase/>
+            <CannonBall position={{x: 0, y: -100}}/>
         </svg>
     );
 }
