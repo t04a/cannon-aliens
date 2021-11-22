@@ -5,6 +5,8 @@ import CannonBase from "./CannonBase";
 import PropTypes from "prop-types";
 import CannonBall from "./CannonBall";
 import CurrentScore from "./CurrentScore";
+import FlyingObject from "./FlyingObject";
+import Heart from "./Heart";
 
 function Canvas(props) {
     const viewBox = [
@@ -30,6 +32,9 @@ function Canvas(props) {
             <CannonBase/>
             <CannonBall position={{x: 0, y: -100}}/>
             <CurrentScore score={15} />
+            <FlyingObject position={{x: -150, y: -300}}/>
+            <FlyingObject position={{x: 150, y: -300}}/>
+            <Heart position={{x: -300, y: 35}} />
         </svg>
     );
 }
