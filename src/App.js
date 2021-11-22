@@ -29,6 +29,8 @@ function App(props) {
     return (
         <Canvas
             angle={props.angle}
+            gameState={props.gameState}
+            startGame={props.startGame}
             trackMouse={event => (trackMouse(event))}
         />
     )
@@ -36,7 +38,13 @@ function App(props) {
 
 App.propTypes = {
     angle: PropTypes.number.isRequired,
+    gameState: PropTypes.shape({
+        started: PropTypes.bool.isRequired,
+        kills: PropTypes.number.isRequired,
+        lives: PropTypes.number.isRequired,
+    }).isRequired,
     moveObjects: PropTypes.func.isRequired,
+    startGame: PropTypes.func.isRequired,
 };
 
 export default App;
