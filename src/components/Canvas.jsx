@@ -2,6 +2,7 @@ import Sky from "./Sky";
 import Ground from "./Ground";
 import CannonPipe from "./CannonPipe";
 import CannonBase from "./CannonBase";
+import PropTypes from "prop-types";
 
 function Canvas(props) {
     const viewBox = [
@@ -13,14 +14,20 @@ function Canvas(props) {
         <svg
             id="aliens-go-home-canvas"
             preserveAspectRatio="xMaxYMax none"
+            onMouseMove={props.trackMouse}
             viewBox={viewBox}
         >
             <Sky/>
             <Ground/>
-            <CannonPipe rotation={45}/>
+            <CannonPipe rotation={props.angle}/>
             <CannonBase/>
         </svg>
     );
 }
+
+Canvas.propTypes = {
+    angle: PropTypes.number.isRequired,
+    trackMouse: PropTypes.func.isRequired,
+};
 
 export default Canvas;
