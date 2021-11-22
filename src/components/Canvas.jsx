@@ -9,13 +9,10 @@ import FlyingObject from "./FlyingObject";
 import Heart from "./Heart";
 import StartGame from "./StartGame";
 import Title from "./Title";
+import {gameHeight} from "../utils/constants";
 
 function Canvas(props) {
-    const viewBox = [
-        window.innerWidth / -2,
-        100 - window.innerHeight,
-        window.innerWidth,
-        window.innerHeight];
+    const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
     return (
         <svg
             id="aliens-go-home-canvas"
@@ -25,7 +22,7 @@ function Canvas(props) {
         >
             <defs>
                 <filter id="shadow">
-                    <feDropShadow dx="1" dy="1" stdDeviation="2" />
+                    <feDropShadow dx="1" dy="1" stdDeviation="2"/>
                 </filter>
             </defs>
             <Sky/>
@@ -33,11 +30,11 @@ function Canvas(props) {
             <CannonPipe rotation={props.angle}/>
             <CannonBase/>
             <CannonBall position={{x: 0, y: -100}}/>
-            <CurrentScore score={15} />
+            <CurrentScore score={15}/>
             <FlyingObject position={{x: -150, y: -300}}/>
             <FlyingObject position={{x: 150, y: -300}}/>
-            <Heart position={{x: -300, y: 35}} />
-            <StartGame onClick={() => console.log('Aliens, Go Home!')} />
+            <Heart position={{x: -300, y: 35}}/>
+            <StartGame onClick={() => console.log('Aliens, Go Home!')}/>
             <Title/>
         </svg>
     );
