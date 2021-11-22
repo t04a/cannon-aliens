@@ -7,6 +7,15 @@ function App(props) {
     const [canvasMousePosition, updateCanvasMousePosition] = useState();
 
     useEffect(() => {
+        window.onresize = () => {
+            const cnv = document.getElementById('aliens-go-home-canvas');
+            cnv.style.width = `${window.innerWidth}px`;
+            cnv.style.height = `${window.innerHeight}px`;
+        };
+        window.onresize();
+    })
+
+    useEffect(() => {
         const intervalId = setInterval(() => {
             props.moveObjects(canvasMousePosition);
         }, 1);
