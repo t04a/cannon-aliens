@@ -18,7 +18,7 @@ function App(props) {
     useEffect(() => {
         const intervalId = setInterval(() => {
             props.moveObjects(canvasMousePosition);
-        }, 1);
+        }, 10);
         return () => clearInterval(intervalId); //This is important
     }, [canvasMousePosition])
 
