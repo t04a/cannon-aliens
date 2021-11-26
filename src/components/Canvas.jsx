@@ -3,13 +3,13 @@ import Ground from "./Ground";
 import CannonPipe from "./CannonPipe";
 import CannonBase from "./CannonBase";
 import PropTypes from "prop-types";
-import CannonBall from "./CannonBall";
 import CurrentScore from "./CurrentScore";
 import FlyingObject from "./FlyingObject";
-import Heart from "./Heart";
 import StartGame from "./StartGame";
 import Title from "./Title";
 import {gameHeight} from "../utils/constants";
+import Login from "./Login";
+import { signIn } from 'auth0-web'
 
 function Canvas(props) {
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
@@ -35,6 +35,7 @@ function Canvas(props) {
             <g>
                 <StartGame onClick={() => props.startGame()} />
                 <Title />
+                <Login authenticate={signIn} />
             </g>
             }
 
