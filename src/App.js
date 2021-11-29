@@ -26,12 +26,17 @@ function App(props) {
         updateCanvasMousePosition(getCanvasPosition(event));
     }
 
+    function shoot() {
+        props.shoot(canvasMousePosition)
+    }
+
     return (
         <Canvas
             angle={props.angle}
             gameState={props.gameState}
             startGame={props.startGame}
             trackMouse={event => (trackMouse(event))}
+            shoot={shoot}
         />
     )
 }
@@ -52,6 +57,7 @@ App.propTypes = {
     }).isRequired,
     moveObjects: PropTypes.func.isRequired,
     startGame: PropTypes.func.isRequired,
+    shoot: PropTypes.func.isRequired,
 };
 
 export default App;

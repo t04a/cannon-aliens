@@ -1,7 +1,6 @@
-import React from 'react';
 import {connect} from "react-redux";
 import App from "../App";
-import {moveObjects, startGame} from "../actions";
+import {moveObjects, shoot, startGame} from "../actions";
 
 function mapStateToProps(state) {
     return {
@@ -16,6 +15,9 @@ const mapDispatchToProps = dispatch => ({
     },
     startGame: () => {
         dispatch(startGame())
+    },
+    shoot: (mousePosition) => {
+        dispatch(shoot(mousePosition))
     }
 });
 
