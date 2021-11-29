@@ -8,8 +8,6 @@ import FlyingObject from "./FlyingObject";
 import StartGame from "./StartGame";
 import Title from "./Title";
 import {gameHeight} from "../utils/constants";
-import Login from "./Login";
-import { signIn } from 'auth0-web'
 
 function Canvas(props) {
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
@@ -31,15 +29,14 @@ function Canvas(props) {
             <CannonBase/>
             <CurrentScore score={15}/>
 
-            { ! props.gameState.started &&
+            {!props.gameState.started &&
             <g>
-                <StartGame onClick={() => props.startGame()} />
-                <Title />
-                <Login authenticate={signIn} />
+                <StartGame onClick={() => props.startGame()}/>
+                <Title/>
             </g>
             }
 
-            { props.gameState.started &&
+            {props.gameState.started &&
             <g>
                 {props.gameState.flyingObjects.map(flyingObject => (
                     <FlyingObject
