@@ -9,9 +9,20 @@ import StartGame from "./StartGame";
 import Title from "./Title";
 import {gameHeight} from "../utils/constants";
 import CannonBall from "./CannonBall";
+import Heart from "./Heart";
 
 function Canvas(props) {
     const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight];
+
+    const lives = [];
+    for (let i = 0; i < props.gameState.lives; i++) {
+        const heartPosition = {
+            x: -180 - (i * 70),
+            y: 35
+        };
+        lives.push(<Heart key={i} position={heartPosition}/>);
+    }
+
     return (
         <svg
             id="aliens-go-home-canvas"
@@ -54,6 +65,7 @@ function Canvas(props) {
                 ))}
             </g>
             }
+            {lives}
         </svg>
     );
 }
